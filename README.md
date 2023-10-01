@@ -107,7 +107,7 @@ The result is it si the same in the vulnhub as showed below:
 
 ![螢幕擷取畫面 (300)](https://github.com/Shecklock/HACKING_LAB/assets/84926502/9988cad7-13de-4158-8aff-7ee6aa916334)<br>
 
-So i took the risk and transfer my file to my main computer, and import it into the Virtual box. After the importation, I delete the file immediately.
+So i took the risk andset everything up again in the laptop, and import it into the Virtual box. After the importation, I delete the file immediately.
 
 ![螢幕擷取畫面 (302)](https://github.com/Shecklock/HACKING_LAB/assets/84926502/af90c79e-7d6e-4183-b650-68dc8e42e447)
 
@@ -118,4 +118,51 @@ TO do this, simply change the network setting for both VM attachment from NAT(or
 <b>NOTE: ensure both of them are connecting to the same internal network</b>
 ![螢幕擷取畫面 (303)](https://github.com/Shecklock/HACKING_LAB/assets/84926502/accf8f1c-0c5a-4365-a034-1428adbbdeb5)
 
-But they don't have a DHCP server, which in other words means they won't have ip address when they boot up, so we have to create one<br>
+But they don't have a DHCP server, which in other words means they won't have ip address when they boot up, so we have to create one for that internal network using Virtual box<br>
+
+Using command promt and change directory to Virtual bix and add dhcp server.<br>
+![螢幕擷取畫面 (305)](https://github.com/Shecklock/HACKING_LAB/assets/84926502/37c7cfd6-90c1-4d69-a2a4-4f3201e73084)
+
+lower ip = the starting range of the network<br>
+upper ip = the ending range of the network<br>
+
+Checking is that worked by start up our Kali Linux and login.<br>
+
+![螢幕擷取畫面 (307)](https://github.com/Shecklock/HACKING_LAB/assets/84926502/82d681f4-0cc8-45f1-9924-4501a8cf9165)<br>
+
+Check our machign ip by using "ip address" in command promt in the VM, in my case it is the second one 10.38.1.110, the second one<br>
+![螢幕擷取畫面 (308)](https://github.com/Shecklock/HACKING_LAB/assets/84926502/549cc76e-b0a6-4066-b29e-e00a48461ecd)<br>
+
+try to ping our own ip using command ping, which should be over time, we can't ping it<br>
+![螢幕擷取畫面 (309)](https://github.com/Shecklock/HACKING_LAB/assets/84926502/b34a67ac-353c-406c-9bdd-d3d0f240adae)
+
+And do the same with our pc to our vm(to get our pc ip, use ipconfig
+
+![螢幕擷取畫面 (311)](https://github.com/Shecklock/HACKING_LAB/assets/84926502/db46e5fa-2e4c-4d6b-bc96-cbe0dec841aa)<br>
+
+I have also tried to ping google, and it should have the message as the screenshot above<br>
+This means the network for the VM is now isolated, they cannot communicate with the pc i am working on and the outside network.
+
+Start the Mr robot, we will have to get the password to login, which is our target.
+
+![螢幕擷取畫面 (310)](https://github.com/Shecklock/HACKING_LAB/assets/84926502/69f10c07-d4ed-4b09-a3bf-6a5f5b1a40bc)<br>
+
+it should be inside the network, so using the sudo namp to search it, which shows us a open port.
+
+![螢幕擷取畫面 (314)](https://github.com/Shecklock/HACKING_LAB/assets/84926502/251bff6f-5a75-4fd8-ad17-98eb8b24fa7b)<br>
+
+Go to the website and see what we got in there
+![螢幕擷取畫面 (315)](https://github.com/Shecklock/HACKING_LAB/assets/84926502/8b969d83-0dd3-4323-8226-5c18792e74c6)<br>
+
+And we got something like this
+
+![螢幕擷取畫面 (317)](https://github.com/Shecklock/HACKING_LAB/assets/84926502/609bbaff-688e-4a61-8bad-77552357fae8)
+
+It is a server contain different pages, we can try hacking it, but i am not doing this for this repositories as this is just a repositories for setting up the enviornment.
+![螢幕擷取畫面 (318)](https://github.com/Shecklock/HACKING_LAB/assets/84926502/5627851f-4d8c-45d0-9a4b-a34e8ada9721)
+
+<h2>Conclusion</h2>
+This a fun project that i can know more on setting up a network, and a lab that i can play with for hacking. Tho I really not recommand anyone coping me to risk it for using mr-robot, i am using it cause everytime i will just messup things if i am not following the tutorial at the start, it is better for me following and have a practise first so i unerstand what is going on and i can manage to do it, and i got an old laptop so i can use it for filtering the risk. This is the end of this project, i am going to clean up my pc now and hopefully there si no virus in my pc
+
+![螢幕擷取畫面 (321)](https://github.com/Shecklock/HACKING_LAB/assets/84926502/a3949951-b5e5-4b6c-9871-7cde779a50a9)
+<h7>cleaning everything in safe mode</h7>
